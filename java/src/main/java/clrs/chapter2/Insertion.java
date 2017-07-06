@@ -71,20 +71,11 @@ public class Insertion {
 
     private static int[] addBinary(int[] A, int[] B) {
         int[] C = new int[A.length + 1];
-        /*
-        Для каждого разряда с конца
-            посчитать сумму
-            если сумма больше единицы
-                прибавить к следующему разряду единицу
-            записать модуль суммы по 2 в результат
-         */
-
         for (int i = A.length - 1; i > -1; i--) {
             int sum = A[i] + B[i] + C[i + 1];
             C[i + 1] = sum % 2;
             if (sum > 1)
                 C[i] = sum - 1 % 2;
-//            System.out.println(sum);
         }
         if (C[0] > 1)
             C[0] = C[0] - 1 % 2;

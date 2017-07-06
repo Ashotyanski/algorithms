@@ -13,7 +13,7 @@ public class Quicksort {
     }
 
     private static void quickSort(int[] array) {
-        quickSort(array, 0, array.length - 1);
+        tailrecQuickSort(array, 0, array.length - 1);
     }
 
     static void quickSort(int[] array, int start, int end) {
@@ -25,7 +25,11 @@ public class Quicksort {
     }
 
     static void tailrecQuickSort(int[] array, int start, int end) {
-
+        while (start < end) {
+            int middle = randomizedMedianPartition(array, start, end);
+            tailrecQuickSort(array, start, middle - 1);
+            start = middle + 1;
+        }
     }
 
     static int HoarePartition(int[] array, int start, int end) {
@@ -72,17 +76,15 @@ public class Quicksort {
                 return j;
             }
         }
-//        int tmp = array[i];
-//        array[i] = array[start];
-//        array[start] = tmp;
-//        return j;
     }
 
     static int randomizedMedianPartition(int[] array, int start, int end) {
-        int j = random.nextInt(end - start) + start;
-        int k = random.nextInt(end - start) + start;
         int i = random.nextInt(end - start) + start;
-        i = j < k ? (i < j ? j : i) : (i < k ? k : i);
+        if (start - end > 3) {
+            int j = random.nextInt(end - start) + start;
+            int k = random.nextInt(end - start) + start;
+            i = j < k ? (i < j ? j : i) : (i < k ? k : i);
+        }
         int tmp = array[end];
         array[end] = array[i];
         array[i] = tmp;

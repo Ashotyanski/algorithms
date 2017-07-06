@@ -1,4 +1,4 @@
-package main.java.clrs.chapter3;
+package clrs.chapter3;
 
 public class Fib {
     public static void main(String[] args) {
