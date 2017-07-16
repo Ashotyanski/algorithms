@@ -12,14 +12,14 @@ public class CountingSort {
 
     static int[] countingSort(int[] array) {
         int[] B = new int[array.length];
-        countingSort(array, B, array.length);
+        countingSort(array, B, 7);
         return B;
     }
 
     static void countingSort(int[] A, int[] B, int k) {
         int[] C = new int[k];
         Arrays.fill(C, 0);
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < A.length; i++) {
             C[A[i]] += 1;
         }
         for (int i = 1; i < k; i++) {
