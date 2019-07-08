@@ -31,13 +31,13 @@ public class Select {
         while (start != end) {
             int pivot = randomizedPartition(array, start, end);
             int pos = pivot - start + 1;
-            if (k == pos)
+            if (k == pivot)
                 return array[pivot];
-            else if (k < pos)
+            else if (k < pivot)
                 end = pivot - 1;
             else {
                 start = pivot + 1;
-                k -= pos;
+//                k -= pos;
             }
         }
         return array[start];
