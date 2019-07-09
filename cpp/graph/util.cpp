@@ -3,6 +3,15 @@
 
 using namespace std;
 
+int** createGraph(int N, int initValue) {
+    int** graph = new int*[N];
+    for (int i = 0; i < N; i++) {
+        graph[i] = new int[N]();
+        fill(graph[i], graph[i] + N, initValue);
+    }
+    return graph;
+}
+
 void printMat(int** mat, const int size) {
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
